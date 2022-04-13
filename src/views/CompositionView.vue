@@ -35,11 +35,15 @@ export default {
       newTodoName.value = ''
     }
 
+    function deleteTodo(index) {
+      todos.value.splice(index, 1)
+    }
 
     return {
       newTodoName,
       todos,
       addTodo,
+      deleteTodo,
     }
   }
   // data() {
