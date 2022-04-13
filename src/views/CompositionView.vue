@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <!--    <h3>You have {{ todosCount }} Todos!</h3>-->
+        <h3>You have {{ todosCount }} Todos!</h3>
     <div>
       <input type="text" v-model="newTodoName" @keyup.enter="addTodo" placeholder="Add a Todo">
     </div>
@@ -17,14 +17,18 @@
 </template>
 
 <script>
-import {ref} from "vue";
+import {ref, computed} from "vue";
 
 export default {
   name: 'CompositionView',
   setup() {
     let newTodoName = ref('');
-    let todos = ref([])
-    const swearwords = ['fart', 'butt hair', 'willy']
+    let todos = ref([]);
+    const swearwords = ['fart', 'butt hair', 'willy'];
+
+    let todosCount = computed(()=>{
+      return todos.value.length;
+    })
 
     function addTodo() {
       let newTodo = {
@@ -42,6 +46,7 @@ export default {
     return {
       newTodoName,
       todos,
+      todosCount,
       addTodo,
       deleteTodo,
     }
