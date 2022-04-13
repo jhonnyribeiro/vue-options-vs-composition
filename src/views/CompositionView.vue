@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import {ref, computed} from "vue";
+import {ref, computed, watch} from "vue";
 
 export default {
   name: 'CompositionView',
@@ -42,6 +42,13 @@ export default {
     function deleteTodo(index) {
       todos.value.splice(index, 1)
     }
+
+    watch(newTodoName, (newValue)=>{
+          if (swearwords.includes(newValue.toLowerCase())) {
+            newTodoName.value = '';
+            alert('You must NEVER say ' + newValue + '!!!');
+          }
+    })
 
     return {
       newTodoName,
