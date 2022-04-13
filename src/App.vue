@@ -1,7 +1,7 @@
 <template>
   <nav>
-    <router-link to="/">Options</router-link> |
-    <router-link to="/composition">Composition</router-link>
+    <router-link to="/">Options API</router-link> |
+    <router-link to="/composition">Composition API</router-link>
   </nav>
   <router-view/>
 </template>
